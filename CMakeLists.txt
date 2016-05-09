@@ -22,7 +22,10 @@ COMPONENTS
   cmake_modules
 )
 find_package(console_bridge REQUIRED)
-find_package(Eigen REQUIRED)
+# Eigen3 hack for Jade https://github.com/ros-perception/perception_pcl/pull/108
+find_package(Eigen3)
+find_package(PkgConfig)
+pkg_search_module(Eigen3 REQUIRED eigen3)
 find_package(octomap REQUIRED)
 find_package(urdfdom REQUIRED)
 find_package(urdfdom_headers REQUIRED)
